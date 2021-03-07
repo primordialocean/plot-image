@@ -32,7 +32,8 @@ def calc_scale(df, img):
     img_tuple = np.array(img).shape
     row = img_tuple[1]
     # 電子顕微鏡の画面サイズは横12cmを基準としているため
-    real_width = 0.12 / magnification
+    # なぜか12.5cmで正確な値になる．倍率計算に用いている領域と実際に表示される領域が異なるため？
+    real_width = 0.125 / magnification
     meter_per_pixel = real_width / row
     return meter_per_pixel
 
